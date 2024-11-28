@@ -4,6 +4,7 @@ apt install iptables-persistent (all)
 sysctl -p (ip.forwarding)
 /etc/sysctl.conf (all)
 forwarnding=1
+systemctl restart networking
 
 /etc/network/interfaces
 ISP
@@ -54,4 +55,22 @@ iface ens4 inet static
 address 192.168.20.2
 netmask 255.255.255.240
 gateway 192.168.1.10
+dns-name servers 8.8.8.8
+
+/etc/network/interfaces
+HQ-SRV
+auto ens3 
+iface ens3 inet static
+address 192.168.10.10
+netmask 255.255.255.240
+gateway 192.168.10.2
+dns-name servers 8.8.8.8
+
+/etc/network/interfaces
+BR-SRV
+auto ens3 
+iface ens3 inet static
+address 192.168.20.10
+netmask 255.255.255.240
+gateway 192.168.20.2
 dns-name servers 8.8.8.8
