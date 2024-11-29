@@ -1,0 +1,3 @@
+ip tunnel add grel mode gre remote (your ip) locacl (your ip) ttl 225
+ip addr add (your ip/30) dev grel
+ip link set grel up
