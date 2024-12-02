@@ -11,4 +11,5 @@ network (yours ip/24) area 0
 network (yours ip/24) area 0
 exit
 show ip ospf neighbour
+systemctl enable --now frr
 ALL ROUTERS SETTINGS
