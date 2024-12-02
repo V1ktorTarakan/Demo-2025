@@ -7,8 +7,8 @@ vtysh
 conf t
 ip forwarding
 router ospf
-network (yours ip/24) area 0
-network (yours ip/24) area 0
+network (other ip/28) area 0
+network (other ip/28) area 0
 exit
 show ip ospf neighbour
 systemctl enable --now frr
