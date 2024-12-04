@@ -1,0 +1,77 @@
+hostnamectl set-hostname (your name)
+exec bash
+iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE (all)
+apt install iptables-persistent (all)
+sysctl -p (ip.forwarding)
+/etc/sysctl.conf (all)
+forwarnding=1
+systemctl restart networking
+
+/etc/network/interfaces
+ISP
+auto ens3 
+iface ens3 inet dhcp
+
+auto ens4 
+iface ens4 inet static
+address 192.168.0.2
+netmask 255.255.255.0
+gateway 10.0.137.43
+dns-nameserver 8.8.8.8
+
+auto ens5
+iface ens5 inet static
+address 192.168.1.2
+netmask 255.255.255.240
+gateway 10.0.137.43
+dns-nameserver 8.8.8.8
+
+/etc/network/interfaces
+HQ-R
+auto ens3 
+iface ens3 inet static
+address 192.168.0.10
+netmask 255.255.255.240
+gateway 192.168.0.2
+dns-nameserver 8.8.8.8
+
+auto ens4
+iface ens4 inet static
+address 192.168.10.2
+netmask 255.255.25.240
+#gateway 192.168.0.10
+#dns-nameserver 8.8.8.8
+
+/etc/network/interfaces
+BR-R
+auto ens3 
+iface ens3 inet static
+address 192.168.1.10
+netmask 255.255.255.240
+gateway 192.168.1.2
+dns-name servers 8.8.8.8
+
+auto ens4
+iface ens4 inet static
+address 192.168.20.2
+netmask 255.255.255.240
+#gateway 192.168.1.10
+#dns-name servers 8.8.8.8
+
+/etc/network/interfaces
+HQ-SRV
+auto ens3 
+iface ens3 inet static
+address 192.168.10.10
+netmask 255.255.255.240
+gateway 192.168.10.2
+dns-name servers 8.8.8.8
+
+/etc/network/interfaces
+BR-SRV
+auto ens3 
+iface ens3 inet static
+address 192.168.20.10
+netmask 255.255.255.240
+gateway 192.168.20.2
+dns-name servers 8.8.8.8
