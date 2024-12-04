@@ -1,1 +1,33 @@
+apt install isc-dhcp-server -y
 
+nano /etc/default/isc-dhcp-server.conf
+Раскомментируем две строчки:
+DHCPDv4_CONF=/etc/dhcp/dhcpd.conf
+DHCPDv4_PID=/var/run/dhcpd.pid
+Далее находим строчку:
+INTERFACESv4="(YOUR INT)"
+
+nano /etc/dhcp/dhcpd.conf
+
+subnet 192.168.0.0 netmask 255.255.255.0 {
+  range 192.168.0.10 192.168.0.200;
+  option routers 192.168.0.254; 
+  option domain-name-servers 8.8.8.8;
+}
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.10 192.168.1.200;
+  option routers 192.168.1.254; 
+  option domain-name-servers 8.8.8.8;
+}
+
+option domain-name – доменное имя
+option domain-name-servers – DNS-сервер
+default-lease-time – время по умолчанию (в секундах) аренды ip-адреса для клиентов
+max-lease-time – максимальное время (в секундах) аренды ip-адреса для клиентов
+log-facility local7 – логирование в отдельный файл
+subnet, netmask – подсеть, и маска подсети
+authoritative – назначение главным DHCP-сервером в этой сети
+range – диапазон ip-адресов для раздачи клиентам
+option routers – основной шлюз
+option subnet-mask – маска подсети
+option broadcast-address – широковещательный ip-адрес
