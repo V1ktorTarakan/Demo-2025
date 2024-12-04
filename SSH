@@ -1,0 +1,4 @@
+nano /etc/ssh/sshd_config
+Раскоментировать (port 2222)
+Раскоментировать (PermitROOtLogin (Добавить yes)
+ss -tlpn | grep ssh
