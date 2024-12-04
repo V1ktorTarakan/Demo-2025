@@ -9,3 +9,5 @@ cp -r /etc/dhcp /var/backup/$data
 cd /var/backup
 tar czfv "./$data.tar.gz" ./$data
 rm -r /var/backup/$data
+#chmod +x /var/backup-script/backup.sh
+# /var/backup-script/backup.sh
