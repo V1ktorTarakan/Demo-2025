@@ -1,4 +1,8 @@
 nano /etc/ssh/sshd_config
 Раскоментировать (port 2222)
 Раскоментировать (PermitROOtLogin (Добавить yes)
+UsePAM = no
+AllowUsers *@192.168.0.2
+AllowUsers *@192.168.10.2
+AllowUsers *@192.168.1.10
 ss -tlpn | grep ssh
