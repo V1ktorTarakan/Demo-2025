@@ -1,7 +1,7 @@
 mkdir /var/{backup,backup-script}
 nano /var/backup-script/backup.sh
 #!/bin/bash
-data=$(data +%d.%m.%Y-%H:%M:%S)
+data=$(date +%d.%m.%Y-%H:%M:%S)
 mkdir /var/backup/%data
 cp -r /etc/frr /var/backup/%data
 cp -r /etc/nftables /var/backup/%data
