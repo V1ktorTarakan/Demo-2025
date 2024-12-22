@@ -1,0 +1,7 @@
+apt-get update && apt-get upgrade
+sudo apt install samba -y
+whereis samba (узнать где самба)
+systemctl status smbd (проверяем запущена ли программа)
+
+adduser samba_user
+Где вместо «samba_user» вы можете прописать своё имя пользователя. 
