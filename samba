@@ -5,3 +5,14 @@ systemctl status smbd (проверяем запущена ли программ
 
 adduser samba_user
 Где вместо «samba_user» вы можете прописать своё имя пользователя. 
+
+Установить пароль Samba для созданного пользователя:
+smbpasswd -a samba_user
+
+Далее пропишите непосредственно сам пароль, когда на экране появится:
+
+New SMB password:
+
+Retype new SMB password:
+
+Added user samba_user.
