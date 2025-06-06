@@ -1,0 +1,6 @@
+hostnamectl set-hostname pcname.au-team.irpo
+exec bash
+timedatectl set-timezone Asia/Krasnoyarsk
+date
+nano /etc/sysctl.conf (раскоментить ipv4)
+iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
