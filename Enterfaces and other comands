@@ -6,3 +6,23 @@ sysctl -p (ip.forwarding)
 /etc/sysctl.conf (all)
 forwarnding=1
 systemctl restart networking
+
+ISP
+1
+name ISP
+device ens3
+ipv4 auto
+ipv4 auto
+2
+name ISP-HQ-RTR
+device ens4
+ipv4 manual
+addresses 172.16.4.1/28
+gateway ens3
+dns 8.8.8.8
+3
+name ISP-BR-RTR
+device ens5
+addresses 172.16.5.1/28
+gateway ens3
+dns 8.8.8.8
