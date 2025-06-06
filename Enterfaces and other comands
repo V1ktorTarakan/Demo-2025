@@ -38,13 +38,13 @@ dns 8.8.8.8
 name HQ-RTR-HQ-SRV
 device ens4
 addresses 172.16.1.1/26
-gateway -
+gateway НЕ НАДО
 dns 8.8.8.8
 3
 name HQ-RTR-HQ-CLI
 device ens5
 addresses 172.16.2.1/28
-gateway -
+gateway НЕ НАДО
 dns 8.8.8.8
 
 HQ-SRV
@@ -74,7 +74,7 @@ dns 8.8.8.8
 name BR-RTR-BR-SRV
 device ens4
 addresses 172.16.3.1/27
-gateway -
+gateway НЕ НАДО
 dns 8.8.8.8
 
 BR-SRV
