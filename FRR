@@ -7,7 +7,7 @@ vtysh
 conf t
 ip forwarding
 router ospf
-network (other ip/28) area 0
+network (other ip/28) area 0 (172.16.1.0/28) пример
 network (other ip/28) area 0
 write
 exit
