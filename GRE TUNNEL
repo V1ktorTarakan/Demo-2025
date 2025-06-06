@@ -1,3 +1,5 @@
-ip tunnel add grel mode gre remote (your ip) locacl (your ip) ttl 225
-ip addr add (your ip/30) dev grel
-ip link set grel up
+nmtui ip tunnel
+add ip tunnel 
+mode gre 
+profile name device tun1
+parrent ens3
