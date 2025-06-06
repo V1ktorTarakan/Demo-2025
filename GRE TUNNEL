@@ -1,5 +1,12 @@
-nmtui ip tunnel
-add ip tunnel 
+nmtui
+
+edit a connetcion > add > ip tunnel 
+
+name tun1
+device tun1
 mode gre 
-profile name device tun1
 parrent ens3
+local ip (хули тут не понятно?)
+remote ip (удаленный IP)
+IPV4 manual
+addresses 10.0.0.1/30 на других 10.0.0.2/30 и т.п
