@@ -6,3 +6,89 @@ sysctl -p (ip.forwarding)
 /etc/sysctl.conf (all)
 forwarnding=1
 systemctl restart networking
+
+ISP
+1
+name ISP
+device ens3
+ipv4 auto
+ipv4 auto
+2
+name ISP-HQ-RTR
+device ens4
+ipv4 manual
+addresses 172.16.4.1/28
+gateway ens3
+dns 8.8.8.8
+3
+name ISP-BR-RTR
+device ens5
+addresses 172.16.5.1/28
+gateway ens3
+dns 8.8.8.8
+
+HQ-RTR
+1
+name ISP-HQ-RTR
+device ens3
+addresses 172.16.4.2/28
+gateway 172.16.4.1
+dns 8.8.8.8
+2
+name HQ-RTR-HQ-SRV
+device ens4
+addresses 172.16.1.1/26
+gateway НЕ НАДО
+dns 8.8.8.8
+3
+name HQ-RTR-HQ-CLI
+device ens5
+addresses 172.16.2.1/28
+gateway НЕ НАДО
+dns 8.8.8.8
+
+HQ-SRV
+1
+name HQ-RTR-HQ-SRV
+device ens3
+addresses 172.16.1.2/26
+gateway 172.16.1.1
+dns 8.8.8.8
+
+HQ-CLI
+1
+name HQ-RTR-HQ-CLI
+device ens3 
+addresses 172.16.2.2/28
+gateway 172.16.2.1
+dns 8.8.8.8
+
+BR-RTR
+1
+name ISP-BR-RTR
+device ens3
+addresses 172.16.5.2/28
+gateway 172.16.5.1
+dns 8.8.8.8
+2
+name BR-RTR-BR-SRV
+device ens4
+addresses 172.16.3.1/27
+gateway НЕ НАДО
+dns 8.8.8.8
+
+BR-SRV
+1
+name BR-RTR-BR-SRV
+device ens3
+addresses 172.16.3.2/27
+gateway 172.16.3.1
+dns 8.8.8.8
+
+ ЕСЛИ НЕ ПИНГУЕТСЯ ЯНДЕКС ТО  reboot !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                   m
+255.255.255.240/28 a ISP > HQ-RTR BR-RTR; HQ-RTR > HQ-CLI
+255.255.255.224/27 s BR-RTR > BR-SRV
+255.255.255.192/26 k HQ-RTR > HQ-SRV 
+                   i
